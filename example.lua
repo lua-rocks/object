@@ -66,7 +66,8 @@ function Rectangle:__newindex(key, value)
 	return rawset(self, key, value)
 end
 
-local rect = Rectangle:new():init(2, 4, 6, 8)
+-- local rect = Rectangle:new():init(2, 4, 6, 8)
+local rect = Rectangle(2, 4, 6, 8)
 
 -- rect:new() -- Error: rect is not a class.
 

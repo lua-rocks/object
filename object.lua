@@ -59,8 +59,13 @@ end
 ---```lua
 ---local rect = Rectangle:new():init(2, 4, 6, 8)
 ---```
----Why I can't mix `new()` with `init()`? - I can an this is just a single line
----of code, but in this case you will not see hints from LSP :(
+---Why I can't mix `new()` with `init()`? - I can, and this is just a single
+---line of code, but in this case you will not see hints from LSP :(
+---
+---But if you want short syntax anyway - you can just call class as function:
+---```lua
+---local rect = Rectangle(2, 4, 6, 8)
+---```
 ---@generic T
 ---@param self T
 ---@return T
@@ -194,5 +199,7 @@ return setmetatable(Object, {
 	__tostring = function(self)
 		return "class " .. self.classname
 	end,
-	__call = Object.new,
+	__call = function(self, ...)
+		return self:new():init(...)
+	end,
 })
