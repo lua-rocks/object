@@ -18,7 +18,6 @@ local Object = {
 ---@param apply_here table Apply to.
 local function apply_meta_from_parents(self, apply_here)
   for key, value in self:iter() do
-    print("KV:", self, apply_here, key, value)
     if apply_here[key] == nil and string.find(key, "__") == 1 then
       apply_here[key] = value
     end
