@@ -1,4 +1,4 @@
-local Object = require("object")
+local Object = require("init")
 
 ---Extra subclass. Just for test.
 ---@class lib.object.example-proto-point:lib.object
